@@ -1,14 +1,12 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-{% for post in publicaciones %}
     <div class="post">
       <div class="date">
-        <p>publicada:{{ post.fecha_publicacion }} </p>
+        <p>publicada:{{ publicaciones.fecha_publicacion }} </p>
       </div>
       <!--el pk django se lo asigna automaticamente a los modelos, no es necesario definirlo, y siempre lo crea con ese nombre-->
-      <h1><a href="{% url "blog.views.detalle_publicaciones" pk=post.pk %}">{{ post.titulo }}</a></h1>
-      <p>{{ post.texto|linebreaks }}</p>
+      <h1><a href="">{{ publicaciones.titulo }}</a></h1>
+      <p>{{ publicaciones.texto|linebreaks }}</p>
     </div>
-    {% endfor %}
 {% endblock content %}
