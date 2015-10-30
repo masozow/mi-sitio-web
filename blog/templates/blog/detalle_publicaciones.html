@@ -2,9 +2,12 @@
 
 {% block content %}
     <div class="post">
-      <div class="date">
-        <p>publicada:{{ publicaciones.fecha_publicacion }} </p>
-      </div>
+        {% if publicaciones.fecha_publicacion %}
+          <div class="date">
+                  {{ publicaciones.fecha_publicacion }}
+          </div>
+        {% endif %}
+       <a class="btn btn-default" href="{% url "editar_post" pk=publicaciones.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
       <!--el pk django se lo asigna automaticamente a los modelos, no es necesario definirlo, y siempre lo crea con ese nombre-->
       <h1><a href="">{{ publicaciones.titulo }}</a></h1>
       <p>{{ publicaciones.texto|linebreaks }}</p>
